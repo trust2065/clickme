@@ -5,6 +5,7 @@ import { v4 as uuid } from "uuid";
 
 import { StyledLink } from "../Link";
 import VideoPicker from "../VideoPicker";
+import Separator from "../Separator";
 
 export default function Playlists() {
   const [playlists, setPlaylists] = useState(window.playlists);
@@ -18,16 +19,14 @@ export default function Playlists() {
 
   const playlistItems = playlists.map(({ id, name, description, videoIds }) => (
     <li key={id}>
-      <span data-tip={description}>
-        {name}
-        <Button onClick={() => handleRemove(id)}>Remove</Button>
-      </span>
       <StyledLink to={`videosInPlaylist/${name}`}>
+        <span data-tip={description}>{name}</span>
         <div>
           <small>{videoIds.join(", ")}</small>
         </div>
       </StyledLink>
       <ReactTooltip />
+      <Button onClick={() => handleRemove(id)}>Remove</Button>
     </li>
   ));
 
@@ -50,6 +49,7 @@ export default function Playlists() {
     };
 
     setPlaylists([...playlists, newPlaylist]);
+    // todo: cleanup state
   };
 
   return (
@@ -72,10 +72,11 @@ export default function Playlists() {
         <label htmlFor="selectedVideos">Selected Videos:</label>
       </Separator>
       {selectedVideos?.map((video, i) => (
-        <>
-          <span key={video}>{video} </span>
+        <span key={video.id}>
+          <span>{video}</span>
+          {video.id}
           {i !== selectedVideos.length - 1 && <span>, </span>}
-        </>
+        </span>
       ))}
       <Separator>
         <button onClick={handleAddPlaylist}>Add</button>
@@ -96,11 +97,8 @@ const Input = styled.input`
   margin-right: 5px;
 `;
 
-const Separator = styled.div`
-  margin-top: 5px;
-`;
-
 const Button = styled.button`
-  margin-left: 5px;
+  margin-top: 5px;
+  margin-bottom: 10px;
   font-size: 12px;
 `;
