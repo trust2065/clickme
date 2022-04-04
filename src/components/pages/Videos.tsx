@@ -12,7 +12,14 @@ export default function Videos() {
 
   const handleAddVideo = () => {
     // todo: duplicate check
-    setVideos([...videos, { name: videoName, id: uuid() }]);
+    setVideos([
+      ...videos,
+      {
+        name: videoName,
+        id: parseInt(uuid()),
+        dateCreated: new Date().toISOString(),
+      },
+    ]);
   };
 
   return (

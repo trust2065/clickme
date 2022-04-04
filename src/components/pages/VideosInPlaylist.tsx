@@ -8,24 +8,23 @@ import VideoPicker from "../VideoPicker";
 
 export default function VideosInPlaylist() {
   let params = useParams();
-  const initVideos = getVideosInPlaylist(params.name);
-  const [selectedVideos, setSelectedVideos] = React.useState(
-    initVideos.map(({ id }) => id)
-  );
+  const initVideoIds = getVideosInPlaylist(params.name).map((v) => v.id);
+  const [selectedVideoIds, setSelectedVideoIds] = React.useState(initVideoIds);
 
   return (
     <div>
-      {selectedVideos.map((m, i) => (
-        <span key={i}>{m.id}</span>
-      ))}
       <div>
         <StyledLink to="/playlists">← Playlists</StyledLink>
       </div>
       <h1>Videos in playlist</h1>
-      <ListItem items={window.videos.filter(v => selectedVideos.indexOf(v.id) !== -1)}></ListItem>
+      <ListItem
+        items={window.videos.filter(
+          (v) => selectedVideoIds.indexOf(v.id) !== -1
+        )}
+      />
       <VideoPicker
-        selectedVideos={selectedVideos}
-        setSelectElements={setSelectedVideos}
+        selectedVideoIds={selectedVideoIds}
+        setSelectedVideoIds={setSelectedVideoIds}
       />
     </div>
   );

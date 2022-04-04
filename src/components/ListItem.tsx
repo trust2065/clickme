@@ -2,8 +2,8 @@ import React from "react";
 import ReactTooltip from "react-tooltip";
 import styled from "styled-components";
 
-export default function ListItem({ items, setItems, hasRemoveButton }) {
-  const handleRemove = (id) => {
+export default function ListItem({ items, setItems, hasRemoveButton }: ListItemProps) {
+  const handleRemove = (id: number) => {
     setItems(items.filter((video) => video.id !== id));
   };
 
@@ -25,3 +25,9 @@ export default function ListItem({ items, setItems, hasRemoveButton }) {
 const Button = styled.button`
   margin-left: 5px;
 `;
+
+interface ListItemProps {
+  items: any[];
+  setItems?: Function;
+  hasRemoveButton?: boolean;
+}

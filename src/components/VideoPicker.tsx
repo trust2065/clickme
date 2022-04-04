@@ -1,9 +1,12 @@
 import React from "react";
 import styled from "styled-components";
 
-export default function VideoPicker({ selectedVideos, setSelectElements }) {
-  const handleClick = (id) => {
-    const newSelectedVideos = [...selectedVideos];
+export default function VideoPicker({
+  selectedVideoIds,
+  setSelectedVideoIds,
+}: VideoPickerProps) {
+  const handleClick = (id: number) => {
+    const newSelectedVideos = [...selectedVideoIds];
     const index = newSelectedVideos.indexOf(id);
     if (index === -1) {
       newSelectedVideos.push(id);
@@ -11,16 +14,16 @@ export default function VideoPicker({ selectedVideos, setSelectElements }) {
       newSelectedVideos.splice(index, 1);
     }
 
-    setSelectElements(newSelectedVideos);
+    setSelectedVideoIds(newSelectedVideos);
   };
 
-  const videoSelected = (id) => selectedVideos.indexOf(id) !== -1;
+  const isVideoSelected = (id: number) => selectedVideoIds.indexOf(id) !== -1;
 
   const videoSelectButtons = window.videos
     .sort((a, b) => a.id - b.id)
     .map((video) => (
       <Button
-        selected={videoSelected(video.id)}
+        selected={isVideoSelected(video.id)}
         key={video.id}
         onClick={() => handleClick(video.id)}
       >
@@ -36,7 +39,7 @@ export default function VideoPicker({ selectedVideos, setSelectElements }) {
   );
 }
 
-const Button = styled.button`
+const Button = styled.button<ButtonProps>`
   border-radius: 5px;
   cursor: pointer;
   display: block;
@@ -48,3 +51,12 @@ const Button = styled.button`
     background: lightgrey;
   `}
 `;
+
+interface ButtonProps {
+  selected: boolean;
+}
+
+interface VideoPickerProps {
+  selectedVideoIds: number[];
+  setSelectedVideoIds: Function;
+}

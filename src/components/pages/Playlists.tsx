@@ -6,13 +6,14 @@ import { v4 as uuid } from "uuid";
 import { StyledLink } from "../Link";
 import VideoPicker from "../VideoPicker";
 import Separator from "../Separator";
+import type { Playlist } from "../../types";
 
 export default function Playlists() {
-  const [playlists, setPlaylists] = useState(window.playlists);
+  const [playlists, setPlaylists] = useState<Playlist[]>(window.playlists);
   const [newPlaylistName, setNewPlaylistName] = useState("");
-  const [selectedVideos, setSelectElements] = React.useState([]);
+  const [selectedVideoIds, setSelectedVideoIds] = React.useState<number[]>([]);
 
-  const handleRemove = (id) => {
+  const handleRemove = (id: number) => {
     // todo: are you sure dialog?
     setPlaylists(playlists.filter((playlist) => playlist.id !== id));
   };
@@ -39,17 +40,22 @@ export default function Playlists() {
 
     // todo: check for duplicates
     // todo: persist the data in sessionStorage
-    const newPlaylist = {
-      id: uuid(),
+    const newPlaylist: Playlist = {
+      id: parseInt(uuid()),
       name: newPlaylistName,
       // todo: textarea for description
       description: "",
       dateCreated: new Date().toISOString(),
-      videoIds: selectedVideos,
+      videoIds: selectedVideoIds,
     };
 
     setPlaylists([...playlists, newPlaylist]);
-    // todo: cleanup state
+    cleanUp();
+  };
+
+  const cleanUp = () => {
+    setNewPlaylistName("");
+    setSelectedVideoIds([]);
   };
 
   return (
@@ -66,24 +72,24 @@ export default function Playlists() {
       <Input
         onChange={(e) => setNewPlaylistName(e.target.value)}
         type="text"
+        value={newPlaylistName}
         id="new_playlist_name"
       />
       <Separator>
         <label htmlFor="selectedVideos">Selected Videos:</label>
       </Separator>
-      {selectedVideos?.map((video, i) => (
-        <span key={video.id}>
-          <span>{video}</span>
-          {video.id}
-          {i !== selectedVideos.length - 1 && <span>, </span>}
+      {selectedVideoIds?.map((videoId, i) => (
+        <span key={videoId}>
+          <span>{videoId}</span>
+          {i !== selectedVideoIds.length - 1 && <span>, </span>}
         </span>
       ))}
       <Separator>
         <button onClick={handleAddPlaylist}>Add</button>
       </Separator>
       <VideoPicker
-        selectedVideos={selectedVideos}
-        setSelectElements={setSelectElements}
+        selectedVideoIds={selectedVideoIds}
+        setSelectedVideoIds={setSelectedVideoIds}
       />
     </div>
   );
