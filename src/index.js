@@ -1,12 +1,12 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import ReactDOM from "react-dom";
+import ReactDOM from "react-dom/client";
 
 import { Playlist, Video } from "./components/Pages";
 import App from "./components/App";
 
-ReactDOM.render(
-  <React.StrictMode>
+function AppWithCallbackAfterRender() {
+  return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<App />} />
@@ -14,6 +14,9 @@ ReactDOM.render(
         <Route path="video" element={<Video />} />
       </Routes>
     </BrowserRouter>
-  </React.StrictMode>,
-  document.getElementById("root")
-);
+  );
+}
+
+const container = document.getElementById("root");
+const root = ReactDOM.createRoot(container);
+root.render(<AppWithCallbackAfterRender />);

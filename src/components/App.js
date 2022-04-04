@@ -7,12 +7,12 @@ function App() {
   return (
     <nav>
       <ol>
-        <ListItem>
+        <NavItem>
           <StyledLink to="/video">Video</StyledLink>
-        </ListItem>
-        <ListItem>
+        </NavItem>
+        <NavItem>
           <StyledLink to="/playlist">Playlist</StyledLink>
-        </ListItem>
+        </NavItem>
       </ol>
     </nav>
   );
@@ -20,7 +20,7 @@ function App() {
 
 export default App;
 
-const ListItem = styled.li`
+const NavItem = styled.li`
   display: inline;
   list-style-type: none;
   margin: 0;

@@ -1,5 +1,7 @@
 import React from "react";
+
 import { StyledLink } from "../Link";
+import ListItem from "../ListItem";
 
 export default function Playlist() {
   return (
@@ -7,7 +9,8 @@ export default function Playlist() {
       <div>
         <StyledLink to="/">← Home</StyledLink>
       </div>
-      <h1>A page for playlist</h1>
+      <h1>Playlists</h1>
+      <ListItem items={window.playlists}></ListItem>
     </div>
   );
 }
