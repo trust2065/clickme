@@ -3,14 +3,14 @@ import React from "react";
 import { StyledLink } from "../Link";
 import ListItem from "../ListItem";
 
-export default function Playlist() {
+export default function Videos() {
   return (
     <div>
       <div>
         <StyledLink to="/">← Home</StyledLink>
       </div>
-      <h1>Playlists</h1>
-      <ListItem items={window.playlists}></ListItem>
+      <h1>Videos</h1>
+      <ListItem items={window.videos}></ListItem>
     </div>
   );
 }

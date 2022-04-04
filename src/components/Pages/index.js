@@ -1,4 +1,5 @@
-import Playlist from "./Playlist";
-import Video from "./Video";
+import Playlists from "./Playlists";
+import Videos from "./Videos";
+import VideosInPlaylist from "./VideosInPlaylist";
 
-export { Playlist, Video };
+export { Playlists, Videos, VideosInPlaylist };

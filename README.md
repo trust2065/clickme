@@ -3,7 +3,7 @@
 ## Task 1: Set up a public git repository
 
 You will submit your code to us via a public git repository. We strongly recommend using GitHub or GitLab, but any public git provider is acceptable. **Please commit your code at the end of every task.**
-
+ 
 ## Task 2: Set up simple navigation
 
 Create 2 pages. One will be used for viewing videos, and the other will be used for viewing playlists. You should provide a simple navigation menu that allows the user to switch between these 2 pages.

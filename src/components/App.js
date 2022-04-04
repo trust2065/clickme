@@ -8,10 +8,10 @@ function App() {
     <nav>
       <ol>
         <NavItem>
-          <StyledLink to="/video">Video</StyledLink>
+          <StyledLink to="/videos">Videos</StyledLink>
         </NavItem>
         <NavItem>
-          <StyledLink to="/playlist">Playlist</StyledLink>
+          <StyledLink to="/playlists">Playlists</StyledLink>
         </NavItem>
       </ol>
     </nav>
