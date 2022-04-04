@@ -1,70 +1,41 @@
-# Getting Started with Create React App
+# ClickView skill assessment
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Task 1: Set up a public git repository
 
-## Available Scripts
+You will submit your code to us via a public git repository. We strongly recommend using GitHub or GitLab, but any public git provider is acceptable. **Please commit your code at the end of every task.**
 
-In the project directory, you can run:
+## Task 2: Set up simple navigation
 
-### `npm start`
+Create 2 pages. One will be used for viewing videos, and the other will be used for viewing playlists. You should provide a simple navigation menu that allows the user to switch between these 2 pages.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Task 3: Display the videos and playlists
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Display all the items in the video array in the provided `video.js` file on the videos page. Then, display all the items in the playlists array in the provided `playlists.js` file. How you display these items is up to you (grid, list, table, tiles, etc).
 
-### `npm test`
+## Task 4: Add a page for viewing the videos inside each playlist
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+When the user clicks on a playlist, they should be taken to a new page that contains the videos in that playlist.
 
-### `npm run build`
+## Task 5: Playlist creation/deletion
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Add actions for both creating new playlists, and deleting existing playlists.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Task 6: Video management in playlists
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+The user should be able to add videos to playlists, as well as remove videos from playlists.
 
-### `npm run eject`
+This involves adding the appropriate actions to videos on both the videos page, and the playlist videos page.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Task 7: Provide bulk actions [Optional]
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Add functionality for users to be able to add multiple videos to playlists at once using checkboxes. Also, offer the same functionality but for removing videos from playlists where appropriate.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+For example, I should be able to "check" a selection of videos from a video list page, and then easily be able to add all of those videos to playlists with 1 action.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Task 8: Get creative [Optional]
 
-## Learn More
+If you find yourself with leftover time, feel free to try to impress us with some creativity. There is room in this application for improvements, and we would love to see what you can come up with. For example, adding pagination to the video lists, adding sorting, etc.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Task 9: Create a readme.md [Compulsory]
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Provide instructions on how to get your code up and running as a `readme.md` file in your git repository. Please also list any dependencies that are not managed by a package manager.
